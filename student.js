@@ -60,7 +60,7 @@ validate('price', function(value) {
   if (this.is_empty(value) || this.is_price(value)) {
     return true;
   }
-  return "must be a valid whole number (e.g., 9, 12)"
+  return "must be a valid number"
 })
 
 // validate('phone_number', function(value) {
