@@ -2,7 +2,7 @@
   var ERROR_ELEMENT_CLASS = 'error';
   var PHONE_NUMBER = /^(\+\d+-)?\d{3}-\d{3}-\d{4}$/;
   var EMAIL = /^[a-z][a-z\+-_\.]*@[a-z][a-z\+-_\.]+\.[a-z]{2,10}$/i;
-  var PRICE = /^\d+(?:\.\d{1,2})?$/
+  // var PRICE = /^\d+(?:\.\d{1,2})?$/
 
   var tools = {
     is_empty: function(value) {
@@ -21,9 +21,9 @@
       return EMAIL.test(value);
     }
 
-    is_price: function(value) {
-     return PRICE.test(value);
-    }
+    // is_price: function(value) {
+    //   return PRICE.test(value);
+    // }
   };
 
   var validations = {};
@@ -104,7 +104,7 @@
       if (validation !== true) {
         valid = false;
 
-        message = 'Form Invalid: ' + validation.toString();
+        message = validation.toString();
         defer(prepend, [form, error_element(message)]);
       }
     }

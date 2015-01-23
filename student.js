@@ -5,56 +5,33 @@ function cannotBeEmpty(value) {
   return true;
 }
 
-// validate('first_name', cannotBeEmpty)
+validate('restaurant_name', cannotBeEmpty);
 
-// validate('last_name', cannotBeEmpty)
 
-// validate('email', function(value) {
-//   if (this.is_empty(value)) {
-//     return "cannot be empty";
-//   }
-//   if (!this.is_email(value))  {
-//     return "is not a valid email";
-//   }
-//   return true;
-// })
 
-var requiredFields = ['restaurant_name', 'crust_thickness', 'crust_flavor', 'crust_texture'];
+// function radiosNotEmpty(name) {
+//     if (checkRadio(document.forms[name])) {
+//         return true;
+//     } else {
+//         return "must have one selected!";
+//     }
+// }
+// function checkRadio(name) {
+//     var radio = document.forms[name];
+//     for (var option in radio) {
+//         if (radio[option].checked) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
 
-for (var i = 0; i < requiredFields.length; i++) {
-  validate(requiredFields[i], cannotBeEmpty);
-}
+// var requiredRadios = ['crust_thickness', 'crust_flavor', 'crust_texture'];
 
-// validate('password', function(value) {
-//   if (this.is_empty(value)) {
-//     return "cannot be empty";
-//   }
-//   return true;
-// })
+// for (var i = 0; i < requiredRadios.length; i++) {
+//   validate(requiredRadios[i], radiosNotEmpty);
+// }
 
-// validate('password_confirm', function(value) {
-//   if (this.is_empty(value)) {
-//     return "cannot be empty";
-//   }
-//   return true;
-// })
-
-// validate('dream', function(value) {
-//   if (this.is_empty(value)) {
-//     return "cannot be empty";
-//   }
-//   return true;
-// })
-
-// validate('phone_number', function(value) {
-//   if (!this.is_empty(value) && !this.is_phone_number(value)) {
-//     return "must be in a valid format"
-//   }
-//   else if (!this.is_empty(value) && this.is_phone_number(value)) {
-//     return true;
-//   }
-//   return true;
-// })
 
 validate('price', function(value) {
   if (this.is_empty(value) || this.is_price(value)) {
@@ -63,32 +40,11 @@ validate('price', function(value) {
   return "must be a valid number"
 })
 
-// validate('phone_number', function(value) {
-//   if (!this.is_empty(value)) {
-//     if ( !this.is_phone_number(value)) {
-//       return "must be in a valid format"
-//     }
-//   }
 
-//   return true;
-// })
 
-// validate('phone_number', function(value) {
-//   if (this.is_empty(value)) {
-//     return true;
-//   } else {
-//     if (this.is_phone_number(value) ) {
-//       return true;
-//     } else {
-//       return "must be in a valid format"
-//     }
-//   }
-// })
-
-// validate('form', function(elements) {
-//   if (elements['password'].value !== elements['password_confirm'].value) {
-//     return "Password and Password Confirm must match.";
-//   }
-//   return true;
-// })
-
+validate('form', function(elements) {
+  if (!elements['crust_thickness'].value || !elements['crust_flavor'].value || !elements['crust_texture'].value) {
+    return "You must select an option for each crust category";
+  }
+  return true;
+})

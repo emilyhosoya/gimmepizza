@@ -8,7 +8,7 @@
 <body>
 	<div class="container">
 
-        <audio autoplay id="player" src="GimmePizzaSlowed.mp3"></audio>
+        <audio id="player" src="GimmePizzaSlowed.mp3"></audio>
             <div class="music">
                 <button onclick="document.getElementById('player').play()">Play</button>
                 <button onclick="document.getElementById('player').pause()">Pause</button>
@@ -16,9 +16,11 @@
 
 		<h1>Gimme dat pizza!</h1>
 
-		<p>Help find the best NY slice outside of NYC. <br>Fill in required fields and click submit.</p><br>
+        <img id="michelangelo" src="images/michelangelo.gif">
 
-		<form method="post" action="https://dojo-loveland-chapter-1.herokuapp.com/users">
+		<p>Help Michelangelo find the best slice outside of NYC. <br>Fill in required fields and click submit.</p><br>
+
+		<form method="post" action="https://dojo-loveland-chapter-1.herokuapp.com/users" onsubmit='return radiosNotEmpty()'>
 			<div class="form-row required">
 				<label for="restaurant_name">Restaurant name:</label>
 				<input type="text" name="restaurant_name" class="textbox">
@@ -89,7 +91,7 @@
                 <input type="radio" name="crust_thickness" value="thin" class="radioChoices"> Thin <img src="images/thin.jpg"><br>
                 <input type="radio" name="crust_thickness" value="average" class="radioChoices"> Average <img src="images/average.jpg"><br>
                 <input type="radio" name="crust_thickness" value="thick" class="radioChoices"> Thick<br> <img src="images/thick.jpg"><br>
-                <input type="radio" name="crust_thickness" value="thick" class="radioChoices"> Deep-dish <img src="images/deepdish.jpg"><br><br>
+                <input type="radio" name="crust_thickness" value="deep-dish" class="radioChoices"> Deep-dish <img src="images/deepdish.jpg"><br><br>
 			</div>
 			<div class="form-row required">
 				<label for="crust_flavor">Crust flavor:</label>
@@ -102,13 +104,17 @@
                 <input type="radio" name="crust_texture" value="crispy"> Crispy
 			</div>
 			<div class="form-row">
-				<label for="price">$ price to feed one hungry <br>person:</label>
+				<label for="price">Price to feed one hungry customer<br> (number and decimals only):</label>
 				<input type="text" name="price" placeholder="e.g., 5.50, 9" class="textbox">
 			</div>
+            <div class="form-row">
+                <label for="recommend">Do you recommend this pizza?</label>
+                <input type="checkbox" name="recommend"> Yes!
+            </div>
 			<div class="form-row">
 				<label></label>
 				<button type="submit">Submit</button>
-				<button type="reset">Clear</button>
+				<button onClick="history.go(0)" value="refresh">Clear</button>
 			</div>
 		</form>
 	</div>
